@@ -1,3 +1,2 @@
 # SunnyWeather
-a simple weather android app
-"First Line of Android" of Chapter 15.
+a simple weather android app on "First Line of Android" of Chapter 15.
