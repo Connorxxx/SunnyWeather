@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardView2"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    app:cardCornerRadius="10dp"
+    android:clickable="true"
+    android:foreground="?attr/selectableItemBackground">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/t_life_index"
+            style="@style/TextAppearance.MaterialComponents.Subtitle1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/life_index"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/coldRiskImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:contentDescription="@string/image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/t_life_index"
+            app:srcCompat="@drawable/ic_coldrisk" />
+
+        <TextView
+            android:id="@+id/t_coldRisk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/cold_risk"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/coldRiskImg"
+            app:layout_constraintTop_toTopOf="@+id/coldRiskImg" />
+
+        <TextView
+            android:id="@+id/coldRiskText"
+            style="@style/TextAppearance.MaterialComponents.Subtitle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintBottom_toBottomOf="@+id/coldRiskImg"
+            app:layout_constraintStart_toEndOf="@+id/coldRiskImg"
+            app:layout_constraintTop_toBottomOf="@+id/t_coldRisk" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <ImageView
+            android:id="@+id/dressingImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:contentDescription="@string/image"
+            app:layout_constraintStart_toStartOf="@+id/guideline3"
+            app:layout_constraintTop_toTopOf="@+id/coldRiskImg"
+            app:srcCompat="@drawable/ic_dressing" />
+
+        <TextView
+            android:id="@+id/t_dressing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/dressing"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/dressingImg"
+            app:layout_constraintTop_toTopOf="@+id/dressingImg" />
+
+        <TextView
+            android:id="@+id/dressingText"
+            style="@style/TextAppearance.MaterialComponents.Subtitle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintBottom_toBottomOf="@+id/dressingImg"
+            app:layout_constraintStart_toEndOf="@+id/dressingImg"
+            app:layout_constraintTop_toBottomOf="@+id/t_dressing" />
+
+        <ImageView
+            android:id="@+id/ultravioletImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:contentDescription="@string/image"
+            app:layout_constraintStart_toStartOf="@+id/coldRiskImg"
+            app:layout_constraintTop_toBottomOf="@+id/coldRiskImg"
+            app:srcCompat="@drawable/ic_ultraviolet" />
+
+        <TextView
+            android:id="@+id/t_ultraviolet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/ultraviolet"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/ultravioletImg"
+            app:layout_constraintTop_toTopOf="@+id/ultravioletImg" />
+
+        <TextView
+            android:id="@+id/ultravioletText"
+            style="@style/TextAppearance.MaterialComponents.Subtitle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            app:layout_constraintBottom_toBottomOf="@+id/ultravioletImg"
+            app:layout_constraintStart_toStartOf="@+id/t_ultraviolet"
+            app:layout_constraintTop_toBottomOf="@+id/t_ultraviolet" />
+
+        <ImageView
+            android:id="@+id/carWashingImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/image"
+            app:layout_constraintStart_toStartOf="@+id/dressingImg"
+            app:layout_constraintTop_toTopOf="@+id/ultravioletImg"
+            app:srcCompat="@drawable/ic_carwashing" />
+
+        <TextView
+            android:id="@+id/t_cardWashing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/car_washing"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/t_dressing"
+            app:layout_constraintTop_toTopOf="@+id/carWashingImg" />
+
+        <TextView
+            android:id="@+id/carWashingText"
+            style="@style/TextAppearance.MaterialComponents.Subtitle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            app:layout_constraintBottom_toBottomOf="@+id/carWashingImg"
+            app:layout_constraintStart_toStartOf="@+id/t_cardWashing"
+            app:layout_constraintTop_toBottomOf="@+id/t_cardWashing" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>
