@@ -1,10 +1,13 @@
 package com.sunnyweather.android.ui.weather
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.ImageView
@@ -16,9 +19,11 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.appbar.AppBarLayout
+import com.google.android.material.snackbar.Snackbar
 import com.sunnyweather.android.R
 import com.sunnyweather.android.logic.model.Weather
 import com.sunnyweather.android.logic.model.getSky
+import com.sunnyweather.android.ui.about.AboutActivity
 import kotlinx.android.synthetic.main.activity_weather.*
 import kotlinx.android.synthetic.main.activity_weather.toolbar1
 import kotlinx.android.synthetic.main.card_forecast.*
@@ -42,12 +47,23 @@ class WeatherActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_weather)
         setSupportActionBar(toolbar1)
-//        supportActionBar?.let {
-//            it.setDisplayHomeAsUpEnabled(true)
-//            it.setHomeAsUpIndicator(R.drawable.ic_menu)
-//        }
         init()
         initDrawerLayout()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.toolbar, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.about -> {
+                val intent = Intent(this, AboutActivity::class.java)
+                startActivity(intent)
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun init() {
@@ -66,9 +82,13 @@ class WeatherActivity : AppCompatActivity() {
             if (weather != null) {
                 showWeatherInfo(weather)
             } else {
-                Toast.makeText(this, "无法成功获取天气信息", Toast.LENGTH_SHORT).show()
+                Snackbar.make(swipeRefresh,"无法获取天气信息，请刷新试试。", Snackbar.LENGTH_LONG)
+                    .setAction("刷新") {
+                        refreshWeather()
+                    }.show()
                 it.exceptionOrNull()?.printStackTrace()
             }
+            swipeRefresh.isRefreshing = false
         })
         onOffsetChanged()
         swipeRefresh.setColorSchemeResources(R.color.colorPrimary)
@@ -85,8 +105,8 @@ class WeatherActivity : AppCompatActivity() {
     private fun onOffsetChanged() {
         appbar.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener {
                 _, verticalOffset ->
-            Log.d(TAG, "onOffsetChanged: $verticalOffset")
-            swipeRefresh.isEnabled = verticalOffset == 0
+            //如果进度条不显示执行 当toolbar拉满才可以刷新，防止刷新时候上拉进度条消失
+            if (!swipeRefresh.isRefreshing) swipeRefresh.isEnabled = verticalOffset == 0
         })
     }
 

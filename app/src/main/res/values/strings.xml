@@ -10,4 +10,7 @@
     <string name="car_washing">洗车</string>
     <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+    <string name="about">关于</string>
+    <string name="version_1_0">Version 1.0</string>
+    <string name="all_rights_reserved">© 2020 吴英昊. ALL RIGHTS RESERVED.</string>
 </resources>

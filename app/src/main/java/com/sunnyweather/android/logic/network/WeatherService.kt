@@ -5,6 +5,7 @@ import com.sunnyweather.android.logic.model.DailyResponse
 import com.sunnyweather.android.logic.model.RealtimeResponse
 import retrofit2.Call
 import retrofit2.http.GET
+import retrofit2.http.Headers
 import retrofit2.http.Path
 
 interface WeatherService {
